@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Grocery App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" ng-click="newPass()">Reset Password</a>
+      <a class="nav-item nav-link" ng-click="logout()">Logout</a>
+    </div>
+  </div>
+</nav>
+<div id="userContent">
+	<h1>Here is your Grocery items {{user}}</h1>
+  <div class="grocerylist">
+      <div ng-controller="groceryCtrl">
+        <input input="text" ng-model="search"/>
+          <ul>
+            <li ng-repeat="x in groceries | filter:search" ng-show="x.available">
+              <h3>{{x.name}} - {{x.rate | currency}}</h3>
+              <div class="remove" ng-click="removeNinja(x)">x</div>
+              <span class="belt" style="background: {{x.belt}}">{{x.belt}} belt</span>
+              <form ng-submit="addNinja()">
+            <input type="text" placeholder="name" ng-model="newninja.name"/>
+            <input type="text" placeholder="belt" ng-model="newninja.belt"/>
+            <input type="text" placeholder="rate" ng-model="newninja.rate"/>
+            <input type="submit" value="Add New Ninja"/>
+          </form>
+        </div>
+        <button ng-click="order='name'">Order by Price </button>
+        <button ng-click="order='belt'">Order By Item Name </button>
+      </div>
+
+	<div class="input">
+		<input type="password" ng-model="newpassword" placeholder="new password">
+	</div>
+	<div class="input">
+		<button ng-click="newPass()">Set New Password</button>
+	</div>
+	<div class="input">
+		<button ng-click="logout()">Logout</button>
+	</div>
+</div>

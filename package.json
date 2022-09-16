@@ -1,0 +1,14 @@
+{
+  "name": "angularjs-mysql-tutorial",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "lite-server"
+  },
+  "author": "codedamn",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
